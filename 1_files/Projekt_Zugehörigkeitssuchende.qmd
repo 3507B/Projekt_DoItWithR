@@ -3,3 +3,5 @@ title: "Projekt_Zugehörigkeitssuchende"
 format: html
 ---
 
+## Frage
+Inwieweit kann die verwendung aller potenziellen Dachressourcen zur gewinnung von Energie durch Photovoltaik (PV) den Energiebedarf der Schweiz decken?
