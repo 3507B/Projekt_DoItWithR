@@ -59,3 +59,22 @@ Ergänzende Quellen folgen.
     -   Scatterplots
     -   Residualdiagnosen
 6.  **Interpretation & Diskussion**
+
+
+```{r}
+#| echo: FALSE
+#| include: FALSE
+
+library(tidyverse)
+library(dplyr)
+
+
+happiness <- read_csv(file = "../0_data/Data+for+Figure+2.1+(2011–2024).csv")
+
+happiness_cleaned <- happiness %>%
+  select(-starts_with("..."))
+  
+names(happiness_cleaned)
+
+```
+
