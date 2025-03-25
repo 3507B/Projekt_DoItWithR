@@ -6,6 +6,7 @@ editor: visual
 ---
 
 ## Fragestellung
+
 Die vorliegende Untersuchung befasst sich mit der Fragestellung, inwieweit die Nutzung sämtlicher potenzieller Dachressourcen zur Gewinnung von Energie durch Photovoltaik (PV) den Energiebedarf der Schweiz decken kann.
 
 Inwiefern kann die Nutzung sämtlicher potenzieller Dachressourcen zur Gewinnung von Energie durch Photovoltaik (PV) den Eigenbedarf der Schweiz decken?

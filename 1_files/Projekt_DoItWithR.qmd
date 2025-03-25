@@ -1,0 +1,61 @@
+---
+title: "Determinanten des Glücks: Eine Korrelationsanalyse der Einflussfaktoren des World Happiness Reports 2025"
+author: "DoItWithR"
+format: html
+editor: visual
+---
+
+### Thema
+
+In unserem Projekt analysieren wir, welche Einflussfaktoren laut World Happiness Report besonders stark mit dem Happiness Score zusammenhängen. Ausserdem untersuchen wir, ob sich diese Zusammenhänge zwischen Industrie- und Entwicklungsländern unterscheiden.
+
+### Forschungsfrage
+
+Welche der im **World Happiness Report** verwendeten Variabeln korrelieren am stärksten mit der **Lebenszufriedenheit** und wie unterscheidet sich deren Einfluss zwischen **Industrienationen** und **Entwicklungsländer**?
+
+### Hypothesen
+
+1.  Die Korrelation zwischen **GDP** und **Happiness Score** ist in Entwicklungländern höher.
+2.  Der **Einfluss** einzelner **Variablen** unterscheidet sich zwischen **Industrie- und Entwicklungländern**.
+
+### Datenquellen
+
+**World Happiness Report**
+
+Quelle: \[<https://worldhappiness.report>\]
+
+Variabeln:
+
+-   GDP per Capita
+
+-   Happiness Score
+
+-   Arbeitslosigkeitsquote
+
+-   Healthy Life Expectancy
+
+Ergänzende Quellen folgen.
+
+### Analysepfad
+
+1.  **Datenimport**
+    -   Einlesen des Happiness-Datensatzes
+    -   Einlesen der Länderklassifikation
+    -   Einlesen weiterer Quellen
+2.  **Datenbereinigung & Vorbereitung**
+    -   Vereinheitlichung der Ländernamen
+    -   Zusammenführen beiden Datensätze
+    -   Einteilung in "Industrienationen" und "Entwicklungsländer"
+3.  **Explorative Datenanalyse**
+    -   Korrelationen zwischen allen Variablen und dem Happiness Score
+    -   Visualisierung mit Heatmaps, Scatterplots
+    -   Gruppierte Boxplots: z. B. Happiness Score nach Region oder Entwicklungsstatus
+4.  **Modellierung**
+    -   Lineare Regression
+    -   Seperate Modelle für Industrie- vs. Entwicklungsländer
+    -   Vergleich
+5.  **Visualisierung der Ergebnisse**
+    -   Darstellung der Regressionskoeffizienten
+    -   Scatterplots
+    -   Residualdiagnosen
+6.  **Interpretation & Diskussion**
