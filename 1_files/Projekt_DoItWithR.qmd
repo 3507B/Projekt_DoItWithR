@@ -75,6 +75,8 @@ happiness_cleaned <- happiness %>%
   select(-starts_with("..."))
   
 names(happiness_cleaned)
+happiness_cleaned
 
+happiness
 ```
 
