@@ -77,6 +77,5 @@ happiness_cleaned <- happiness %>%
 names(happiness_cleaned)
 happiness_cleaned
 
-happiness
 ```
 
