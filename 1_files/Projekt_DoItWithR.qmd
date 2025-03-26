@@ -60,7 +60,6 @@ Ergänzende Quellen folgen.
     -   Residualdiagnosen
 6.  **Interpretation & Diskussion**
 
-
 ```{r}
 #| echo: FALSE
 #| include: FALSE
@@ -78,4 +77,3 @@ names(happiness_cleaned)
 happiness_cleaned
 
 ```
-
