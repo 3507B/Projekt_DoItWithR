@@ -1,9 +1,58 @@
 ---
 title: "Determinanten des Glücks: Eine Korrelationsanalyse der Einflussfaktoren des World Happiness Reports 2025"
-author: "DoItWithR"
+author: "DoItWithR/Zugehöörigkeitssuchende"
 format: html
 editor: visual
 ---
+
+# Einleitung
+
+Hier kommt die Einleitung mit Hypothese
+
+Welche der im **World Happiness Report** verwendeten Variabeln korrelieren am stärksten mit der **Lebenszufriedenheit**. Desweiteren, wie unterscheidet sich deren Einfluss zwischen **Industrienationen** und **Entwicklungsländer**?
+
+# Theorie
+**FRAGE**: Breuchen wir einen Theorieteil?
+
+# Hauptteil
+
+**IN R-CHUNK**
+-> Daten einlesen
+-> Daten präparieren, Spaltennamen ändern, Werte numerisch transformieren
+
+
+## Ergebnisse der Korrelation
+**IN R-CHUNK**
+-> Korrelieren alle Variablen aus dem Report mit der Lebenszufreidenheit
+-> Grafik erstellen, die die Korrelation als (z.B.) Barplot zeigt.
+
+Grafik erklären in Fliesstext
+
+## Industrienationen und Entwicklungsländer
+
+Industrienationen und Entwicklungsländer 
+
+**IN R-CHUNK**
+-> Cluster machen, eventuell zeigen sich so zwei cluster für Entw.L. und Ind.L.
+
+# Fazit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### Thema
 
@@ -15,8 +64,9 @@ Welche der im **World Happiness Report** verwendeten Variabeln korrelieren am st
 
 ### Hypothesen
 
-1.  Die Korrelation zwischen **GDP** und **Happiness Score** ist in Entwicklungländern höher.
-2.  Der **Einfluss** einzelner **Variablen** unterscheidet sich zwischen **Industrie- und Entwicklungländern**.
+1.  Die Variable (...) korreliert am stärksten mit der Lebenszufriedenheit.
+2. Die Korrelation zwischen **GDP** und **Happiness Score** ist in Entwicklungländern höher.
+3.  Der **Einfluss** einzelner **Variablen** unterscheidet sich zwischen **Industrie- und Entwicklungländern**.
 
 ### Datenquellen
 
@@ -62,7 +112,7 @@ Ergänzende Quellen folgen.
 
 ```{r}
 #| echo: FALSE
-#| include: FALSE
+#| include: TRUE
 
 library(tidyverse)
 library(dplyr)
@@ -74,7 +124,8 @@ happiness_cleaned <- happiness %>%
   select(-starts_with("..."))
   
 names(happiness_cleaned)
-happiness_cleaned
+happiness_cleaned %>%
+  group_by(desc(Year))
 
 ```
 
