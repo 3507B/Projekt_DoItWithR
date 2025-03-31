@@ -1,6 +1,6 @@
 ---
 title: "Determinanten des Glücks: Eine Korrelationsanalyse der Einflussfaktoren des World Happiness Reports 2025"
-author: "DoItWithR/Zugehöörigkeitssuchende"
+author: "DoItWithR/Zugehörigkeitssuchende"
 format: html
 editor: visual
 ---
@@ -19,6 +19,39 @@ Welche der im **World Happiness Report** verwendeten Variabeln korrelieren am st
 **IN R-CHUNK**
 -> Daten einlesen
 -> Daten präparieren, Spaltennamen ändern, Werte numerisch transformieren
+```{r}
+#| echo: FALSE
+#| include: FALSE
+
+library(tidyverse)
+library(dplyr)
+
+# Daten einlesen
+happiness <- read_csv(file = "../0_data/Data+for+Figure+2.1+(2011–2024).csv")
+
+#Daten bereinigen, nicht benötigte Spalten entfernen
+happiness_cleaned <- happiness %>%
+  select(-starts_with("...")) %>%
+  select(-matches("upperwhisker|lowerwhisker|Dystopia")) %>%
+  # Spalten neu benennen
+  rename(
+    Happiness = 'Ladder score',
+    GDP = 'Explained by: Log GDP per capita',
+    Social = 'Explained by: Social support',
+    Health = 'Explained by: Healthy life expectancy',
+    Freedom = 'Explained by: Freedom to make life choices',
+    Generosity = 'Explained by: Generosity',
+    Corruption = 'Explained by: Perceptions of corruption'
+  )
+
+#names(happiness_cleaned)
+
+# happiness für das Jahr 2024 filtern
+happiness_2024 <- happiness_cleaned %>%
+  filter(Year == 2024)
+
+
+```
 
 
 ## Ergebnisse der Korrelation
@@ -26,7 +59,7 @@ Welche der im **World Happiness Report** verwendeten Variabeln korrelieren am st
 -> Korrelieren alle Variablen aus dem Report mit der Lebenszufreidenheit
 -> Grafik erstellen, die die Korrelation als (z.B.) Barplot zeigt.
 
-Grafik erklären in Fliesstext
+Grafik erklären in Fliesstext und Ergebnisse Interpretieren
 
 ## Industrienationen und Entwicklungsländer
 
@@ -125,7 +158,7 @@ happiness_cleaned <- happiness %>%
   
 names(happiness_cleaned)
 happiness_cleaned %>%
-  group_by(desc(Year))
+  group_by(Year, drop_na = TRUE)
 
 ```
 
