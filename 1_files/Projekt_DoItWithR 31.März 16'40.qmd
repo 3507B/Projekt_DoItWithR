@@ -1,0 +1,171 @@
+---
+title: "Determinanten des Glücks: Eine Korrelationsanalyse der Einflussfaktoren des World Happiness Reports 2025"
+author: "DoItWithR/Zugehörigkeitssuchende"
+format: html
+editor: visual
+---
+
+# Einleitung
+
+Hier kommt die Einleitung mit Hypothese...
+
+Welche der im **World Happiness Report** verwendeten Variabeln korrelieren am stärksten mit der **Lebenszufriedenheit**. Desweiteren, wie unterscheidet sich deren Einfluss zwischen **Industrienationen** und **Entwicklungsländer**?
+
+# Theorie
+
+**FRAGE**: Brauchen wir einen Theorieteil?
+
+# Hauptteil
+
+**IN R-CHUNK** -\> Daten einlesen -\> Daten präparieren, Spaltennamen ändern, Werte numerisch transformieren
+
+```{r}
+#| echo: FALSE
+#| include: FALSE
+
+library(tidyverse)
+library(dplyr)
+
+# Daten einlesen
+happiness <- read_csv(file = "../0_data/Data+for+Figure+2.1+(2011–2024).csv")
+
+#Daten bereinigen, nicht benötigte Spalten entfernen
+happiness_cleaned <- happiness %>%
+  select(-starts_with("...")) %>%
+  select(-matches("upperwhisker|lowerwhisker|Dystopia")) %>%
+  # Spalten neu benennen
+  rename(
+    Happiness = 'Ladder score',
+    GDP = 'Explained by: Log GDP per capita',
+    Social = 'Explained by: Social support',
+    Health = 'Explained by: Healthy life expectancy',
+    Freedom = 'Explained by: Freedom to make life choices',
+    Generosity = 'Explained by: Generosity',
+    Corruption = 'Explained by: Perceptions of corruption'
+  )
+
+#names(happiness_cleaned)
+
+# happiness für das Jahr 2024 filtern
+happiness_2024 <- happiness_cleaned %>%
+  filter(Year == 2024)
+
+
+```
+
+## Ergebnisse der Korrelation
+
+**IN R-CHUNK** -\> Korrelieren alle Variablen aus dem Report mit der Lebenszufreidenheit -\> Grafik erstellen, die die Korrelation als (z.B.) Barplot zeigen.
+
+```{r}
+#| echo: FALSE
+#| include: FALSE
+# z.B. Barplot
+library(ggplot2)
+# Variabeln definieren
+# Barplot erstellen
+ggplot()
+geom_bar() +
+  coord_flip() +
+  theme_minimal() +
+  labs(
+    title = "",
+    x = "",
+    y = ""
+  )
+
+```
+
+Grafik erklären in Fliesstext und Ergebnisse Interpretieren...
+
+## Industrienationen und Entwicklungsländer
+
+Industrienationen und Entwicklungsländer
+
+**IN R-CHUNK** -\> Cluster machen, eventuell zeigen sich so zwei cluster für Entw.L. und Ind.L.
+
+```{r}
+# Pakete laden
+# Einlesen Daten, numerische Variablen
+# Daten skalieren
+# Cluster zum Datensatz hinzufügen
+# Plot erstellen
+...
+```
+
+# Fazit
+
+### Thema
+
+In unserem Projekt analysieren wir, welche Einflussfaktoren laut World Happiness Report besonders stark mit dem Happiness Score zusammenhängen. Ausserdem untersuchen wir, ob sich diese Zusammenhänge zwischen Industrie- und Entwicklungsländern unterscheiden.
+
+### Forschungsfrage
+
+Welche der im **World Happiness Report** verwendeten Variabeln korrelieren am stärksten mit der **Lebenszufriedenheit** und wie unterscheidet sich deren Einfluss zwischen **Industrienationen** und **Entwicklungsländer**?
+
+### Hypothesen
+
+1.  Die Variable (...) korreliert am stärksten mit der Lebenszufriedenheit.
+2.  Die Korrelation zwischen **GDP** und **Happiness Score** ist in Entwicklungländern höher.
+3.  Der **Einfluss** einzelner **Variablen** unterscheidet sich zwischen **Industrie- und Entwicklungländern**.
+
+### Datenquellen
+
+**World Happiness Report**
+
+Quelle: \[<https://worldhappiness.report>\]
+
+Variabeln:
+
+-   GDP per Capita
+
+-   Happiness Score
+
+-   Arbeitslosigkeitsquote
+
+-   Healthy Life Expectancy
+
+Ergänzende Quellen folgen.
+
+### Analysepfad
+
+1.  **Datenimport**
+    -   Einlesen des Happiness-Datensatzes
+    -   Einlesen der Länderklassifikation
+    -   Einlesen weiterer Quellen
+2.  **Datenbereinigung & Vorbereitung**
+    -   Vereinheitlichung der Ländernamen
+    -   Zusammenführen beiden Datensätze
+    -   Einteilung in "Industrienationen" und "Entwicklungsländer"
+3.  **Explorative Datenanalyse**
+    -   Korrelationen zwischen allen Variablen und dem Happiness Score
+    -   Visualisierung mit Heatmaps, Scatterplots
+    -   Gruppierte Boxplots: z. B. Happiness Score nach Region oder Entwicklungsstatus
+4.  **Modellierung**
+    -   Lineare Regression
+    -   Seperate Modelle für Industrie- vs. Entwicklungsländer
+    -   Vergleich
+5.  **Visualisierung der Ergebnisse**
+    -   Darstellung der Regressionskoeffizienten
+    -   Scatterplots
+    -   Residualdiagnosen
+6.  **Interpretation & Diskussion**
+
+```{r}
+#| echo: FALSE
+#| include: TRUE
+
+library(tidyverse)
+library(dplyr)
+
+
+happiness <- read_csv(file = "../0_data/Data+for+Figure+2.1+(2011–2024).csv")
+
+happiness_cleaned <- happiness %>%
+  select(-starts_with("..."))
+  
+names(happiness_cleaned)
+happiness_cleaned %>%
+  group_by(Year, drop_na = TRUE)
+
+```
